@@ -8,7 +8,7 @@ Bem-vindo(a) ao processo seletivo para a posição de **Desenvolvedor(a) Back-En
 
 - ✅ Faça um **fork** deste repositório para o seu GitHub pessoal.
 - ✅ Desenvolva as soluções solicitadas abaixo, seguindo as **melhores práticas de desenvolvimento**. 
-- Após a conclusão, envie o link do seu repositório para avaliação.
+- ✅ Após a conclusão, envie o link do seu repositório para avaliação.
 - Sinta-se à vontade para adicionar qualquer documentação ou comentários que julgar necessário.
 
 ## Desafio
@@ -19,14 +19,14 @@ Você foi designado para desenvolver um sistema de gerenciamento de pedidos para
 
 - ✅ Criem, visualizem, atualizem e cancelem pedidos. 
 - ✅ Cada pedido deve conter: identificador do pedido, itens (com quantidade e preço), status do pedido (pendente, processando, enviado, entregue, cancelado), data de criação e atualização.
-- O sistema deve comunicar eventos de criação e atualização de pedidos via **Kafka** para outros serviços (por exemplo, sistema de estoque, notificações).
+- ✅ O sistema deve comunicar eventos de criação e atualização de pedidos via **Kafka** para outros serviços (por exemplo, sistema de estoque, notificações).
 - ✅ O sistema deve indexar e permitir a busca de pedidos utilizando **Elasticsearch**, proporcionando pesquisas avançadas.
 
 ### Requisitos
 
 1. **Configuração do Ambiente**
 
-   - Configure um ambiente de desenvolvimento utilizando **Docker** e **Docker-compose**, incluindo:
+   - ✅ Configure um ambiente de desenvolvimento utilizando **Docker** e **Docker-compose**, incluindo:
      - ✅ Aplicação Node.js com **Nest.js**.
      - ✅ Banco de dados **PostgreSQL**.
      - ✅ Servidor **Kafka** (pode utilizar imagens como `bitnami/kafka` ou similares).
@@ -42,10 +42,10 @@ Você foi designado para desenvolver um sistema de gerenciamento de pedidos para
 
 3. **Comunicação via Kafka**
 
-   - Implemente a publicação de eventos em **Kafka**:
-     - Ao criar um novo pedido, publique um evento `order_created`.
-     - Ao atualizar o status de um pedido, publique um evento `order_status_updated`.
-     - Os eventos devem conter informações relevantes em formato JSON.
+   - ✅ Implemente a publicação de eventos em **Kafka**:
+     - ✅ Ao criar um novo pedido, publique um evento `order_created`.
+     - ✅ Ao atualizar o status de um pedido, publique um evento `order_status_updated`.
+     - ✅ Os eventos devem conter informações relevantes em formato JSON.
 
 4. **Integração com Elasticsearch**
 

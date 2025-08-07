@@ -68,6 +68,7 @@ export class CreateOrderUseCase implements ICreateOrderUseCase {
         };
       }),
       createdAt: order.createdAt,
+      updatedAt: order.updatedAt,
     };
 
     await this.kafkaService.emit('order_created', orderEmitter);

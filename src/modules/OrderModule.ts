@@ -52,8 +52,9 @@ import { KafkaService } from 'src/infrastructure/kafka/KafkaService';
       useFactory: (
         orderRepository: DBOrderRepository,
         searchService: SearchService,
-      ) => new UpdateOrderUseCase(orderRepository, searchService),
-      inject: [DBOrderRepository, SearchService],
+        kafkaService: KafkaService,
+      ) => new UpdateOrderUseCase(orderRepository, searchService, kafkaService),
+      inject: [DBOrderRepository, SearchService, KafkaService],
     },
     {
       provide: DeleteOrderUseCase,
