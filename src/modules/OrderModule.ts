@@ -13,6 +13,7 @@ import { DBOrderRepository } from 'src/infrastructure/database/repositories/DBOr
 import { SearchService } from 'src/infrastructure/elasticsearch/SearchService';
 import { OrderController } from 'src/presentation/controllers/OrderController';
 import { ElasticsearchModule } from './ElasticsearchModule';
+import { KafkaService } from 'src/infrastructure/kafka/KafkaService';
 
 @Module({
   imports: [
@@ -24,15 +25,27 @@ import { ElasticsearchModule } from './ElasticsearchModule';
     DBItemRepository,
     DBOrderRepository,
     SearchService,
+    KafkaService,
     {
       provide: CreateOrderUseCase,
       useFactory: (
         itemRepository: DBItemRepository,
         orderRepository: DBOrderRepository,
         searchService: SearchService,
+        kafkaService: KafkaService,
       ) =>
-        new CreateOrderUseCase(itemRepository, orderRepository, searchService),
-      inject: [DBItemRepository, DBOrderRepository, SearchService],
+        new CreateOrderUseCase(
+          itemRepository,
+          orderRepository,
+          searchService,
+          kafkaService,
+        ),
+      inject: [
+        DBItemRepository,
+        DBOrderRepository,
+        SearchService,
+        KafkaService,
+      ],
     },
     {
       provide: UpdateOrderUseCase,

@@ -5,7 +5,7 @@ services:
       dockerfile: Dockerfile
     container_name: nest-app
     ports:
-      - "3001:3001"
+      - "3000:3000"
     volumes:
       - .:/usr/src/app
     depends_on:
@@ -16,10 +16,17 @@ services:
     environment:
       - NODE_ENV=development
       - DB_HOST=db
-      - DB_PORT=5433
+      - DB_PORT=5432
       - DB_USER=postgres
       - DB_PASS=postgres
       - DB_NAME=orders
+      - ELASTICSEARCH_NODE=http://elasticsearch:9200
+      - ELASTICSEARCH_USERNAME=elastic
+      - ELASTICSEARCH_PASSWORD=changeme
+      - KAFKA_BROKER=kafka:9092
+      - KAFKA_CLIENT_ID=orders-service
+      - KAFKA_TOPIC_ORDER_CREATED=order_created
+      - KAFKA_TOPIC_ORDER_UPDATED=order_updated
     command: npm run start:dev
 
   db:
@@ -27,12 +34,12 @@ services:
     container_name: postgres-db
     restart: always
     environment:
-      POSTGRES_PORT: 5433
+      POSTGRES_PORT: 5432
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
       POSTGRES_DB: orders
     ports:
-      - "5433:5433"
+      - "5432:5432"
     volumes:
       - pgdata:/var/lib/postgresql/data
   

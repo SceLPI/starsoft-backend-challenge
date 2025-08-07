@@ -9,12 +9,14 @@ import { OrderItem } from '../../entities/OrderItem';
 import { Status } from '../../enums/Status';
 import { randomUUID } from 'crypto';
 import { SearchService } from 'src/infrastructure/elasticsearch/SearchService';
+import { KafkaService } from 'src/infrastructure/kafka/KafkaService';
 
 export class CreateOrderUseCase implements ICreateOrderUseCase {
   constructor(
     private readonly itemRepository: IItemRepository,
     private readonly orderRepository: IOrderRepository,
     private readonly searchService: SearchService,
+    private readonly kafkaService: KafkaService,
   ) {}
 
   async execute(params: CreateOrderUseCaseParams): Promise<void> {
@@ -52,5 +54,22 @@ export class CreateOrderUseCase implements ICreateOrderUseCase {
 
     await this.orderRepository.save(order);
     await this.searchService.indexOrder(order);
+
+    const orderEmitter = {
+      id: order.id,
+      status: order.status,
+      items: order.items.map((orderItems) => {
+        return {
+          id: orderItems.id,
+          name: orderItems.item.name,
+          quantity: orderItems.quantity,
+          unitValue: orderItems.item.price,
+          value: orderItems.value,
+        };
+      }),
+      createdAt: order.createdAt,
+    };
+
+    await this.kafkaService.emit('order_created', orderEmitter);
   }
 }
