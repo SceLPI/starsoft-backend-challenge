@@ -1,6 +1,13 @@
 import { TypeOrmModuleOptions } from '@nestjs/typeorm';
 import { ConfigService } from '@nestjs/config';
 
+const test = new ConfigService({});
+console.log(test.get('DB_HOST'));
+console.log(test.get('DB_PORT'));
+console.log(test.get('DB_USER'));
+console.log(test.get('DB_PASS'));
+console.log(test.get('DB_NAME'));
+
 export const typeOrmConfig = (
   configService: ConfigService,
 ): TypeOrmModuleOptions => ({
