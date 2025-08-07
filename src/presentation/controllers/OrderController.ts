@@ -34,7 +34,6 @@ export class OrderController {
   @Post()
   @HttpCode(HttpStatus.CREATED)
   async create(@Body() body: any): Promise<void> {
-    console.log(JSON.stringify(body, null, 2));
     await this.createOrderUseCase.execute({
       items: body.items,
       createdAt: new Date(),
@@ -47,7 +46,6 @@ export class OrderController {
     @Param('id') id: string,
     @Body() body: UpdateOrderDTO,
   ): Promise<void> {
-    console.log(JSON.stringify(body));
     await this.updateOrderUseCase.execute({
       id: id,
       status: body.status,
