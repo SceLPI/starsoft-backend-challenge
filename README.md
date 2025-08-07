@@ -6,8 +6,8 @@ Bem-vindo(a) ao processo seletivo para a posição de **Desenvolvedor(a) Back-En
 
 ## Instruções
 
-- Faça um **fork** deste repositório para o seu GitHub pessoal. ✅
-- Desenvolva as soluções solicitadas abaixo, seguindo as **melhores práticas de desenvolvimento**. ✅
+- ✅ Faça um **fork** deste repositório para o seu GitHub pessoal.
+- ✅ Desenvolva as soluções solicitadas abaixo, seguindo as **melhores práticas de desenvolvimento**. 
 - Após a conclusão, envie o link do seu repositório para avaliação.
 - Sinta-se à vontade para adicionar qualquer documentação ou comentários que julgar necessário.
 
@@ -29,7 +29,7 @@ Você foi designado para desenvolver um sistema de gerenciamento de pedidos para
    - Configure um ambiente de desenvolvimento utilizando **Docker** e **Docker-compose**, incluindo:
      - ✅ Aplicação Node.js com **Nest.js**.
      - ✅ Banco de dados **PostgreSQL**.
-     - Servidor **Kafka** (pode utilizar imagens como `bitnami/kafka` ou similares).
+     - ✅ Servidor **Kafka** (pode utilizar imagens como `bitnami/kafka` ou similares).
      - ✅ **Elasticsearch** para indexação e busca .
    - ✅ A aplicação deve ser iniciada com um único comando (`docker-compose up`).
 
