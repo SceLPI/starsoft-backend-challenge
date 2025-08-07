@@ -7,11 +7,20 @@ import {
   ValidateNested,
 } from 'class-validator';
 class CreateOrderItem {
-  @IsUUID()
+  @IsUUID('all', {
+    message: 'The provided ID is invalid',
+  })
   itemId: string;
 
-  @IsNumber()
-  @Min(1)
+  @IsNumber(
+    {},
+    {
+      message: 'The item quantity should be a number',
+    },
+  )
+  @Min(1, {
+    message: 'The item amount should be greater than one',
+  })
   quantity: number;
 }
 export class CreateOrderDTO {

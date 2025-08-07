@@ -9,7 +9,6 @@ export class SearchService {
   constructor(private readonly elasticsearchService: ElasticsearchService) {}
 
   async indexOrder(order: Order) {
-    console.log('Indexando pedido com ID:', order.id);
     await this.elasticsearchService.index({
       index: this.index,
       id: order.id,

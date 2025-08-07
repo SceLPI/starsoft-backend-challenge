@@ -12,6 +12,7 @@ import {
   Put,
   Query,
 } from '@nestjs/common';
+import { CreateOrderDTO } from 'src/application/dtos/CreateOrderDTO';
 import type { UpdateOrderDTO } from 'src/application/dtos/UpdateOrderDTO';
 import { CreateOrderUseCase } from 'src/domain/use-cases/create-order/CreateOrderUseCase';
 import { DeleteOrderUseCase } from 'src/domain/use-cases/delete-order/DeleteOrderUseCase';
@@ -33,7 +34,7 @@ export class OrderController {
 
   @Post()
   @HttpCode(HttpStatus.CREATED)
-  async create(@Body() body: any): Promise<void> {
+  async create(@Body() body: CreateOrderDTO): Promise<void> {
     await this.createOrderUseCase.execute({
       items: body.items,
       createdAt: new Date(),
