@@ -1,9 +1,13 @@
 import { IUpdateOrderUseCase } from './IUpdateOrderUseCase';
 import { UpdateOrderUseCaseParams } from './UpdateOrderUseCaseParams';
 import { IOrderRepository } from '../../repositories/IOrderRepository';
+import { SearchService } from 'src/infrastructure/elasticsearch/SearchService';
 
 export class UpdateOrderUseCase implements IUpdateOrderUseCase {
-  constructor(private readonly orderRepository: IOrderRepository) {}
+  constructor(
+    private readonly orderRepository: IOrderRepository,
+    private readonly searchService: SearchService,
+  ) {}
 
   async execute(params: UpdateOrderUseCaseParams): Promise<void> {
     const { id, status } = params;
@@ -15,5 +19,6 @@ export class UpdateOrderUseCase implements IUpdateOrderUseCase {
 
     order.updateStatus(status);
     await this.orderRepository.update(order);
+    await this.searchService.indexOrder(order);
   }
 }

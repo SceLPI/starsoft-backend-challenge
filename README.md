@@ -6,8 +6,8 @@ Bem-vindo(a) ao processo seletivo para a posição de **Desenvolvedor(a) Back-En
 
 ## Instruções
 
-- Faça um **fork** deste repositório para o seu GitHub pessoal.
-- Desenvolva as soluções solicitadas abaixo, seguindo as **melhores práticas de desenvolvimento**.
+- Faça um **fork** deste repositório para o seu GitHub pessoal. ✅
+- Desenvolva as soluções solicitadas abaixo, seguindo as **melhores práticas de desenvolvimento**. ✅
 - Após a conclusão, envie o link do seu repositório para avaliação.
 - Sinta-se à vontade para adicionar qualquer documentação ou comentários que julgar necessário.
 
@@ -17,28 +17,28 @@ Bem-vindo(a) ao processo seletivo para a posição de **Desenvolvedor(a) Back-En
 
 Você foi designado para desenvolver um sistema de gerenciamento de pedidos para um e-commerce. O sistema deve permitir que os clientes:
 
-- Criem, visualizem, atualizem e cancelem pedidos.
-- Cada pedido deve conter: identificador do pedido, itens (com quantidade e preço), status do pedido (pendente, processando, enviado, entregue, cancelado), data de criação e atualização.
+- ✅ Criem, visualizem, atualizem e cancelem pedidos. 
+- ✅ Cada pedido deve conter: identificador do pedido, itens (com quantidade e preço), status do pedido (pendente, processando, enviado, entregue, cancelado), data de criação e atualização.
 - O sistema deve comunicar eventos de criação e atualização de pedidos via **Kafka** para outros serviços (por exemplo, sistema de estoque, notificações).
-- O sistema deve indexar e permitir a busca de pedidos utilizando **Elasticsearch**, proporcionando pesquisas avançadas.
+- ✅ O sistema deve indexar e permitir a busca de pedidos utilizando **Elasticsearch**, proporcionando pesquisas avançadas.
 
 ### Requisitos
 
 1. **Configuração do Ambiente**
 
    - Configure um ambiente de desenvolvimento utilizando **Docker** e **Docker-compose**, incluindo:
-     - Aplicação Node.js com **Nest.js**.
-     - Banco de dados **PostgreSQL**.
+     - ✅ Aplicação Node.js com **Nest.js**.
+     - ✅ Banco de dados **PostgreSQL**.
      - Servidor **Kafka** (pode utilizar imagens como `bitnami/kafka` ou similares).
-     - **Elasticsearch** para indexação e busca .
-   - A aplicação deve ser iniciada com um único comando (`docker-compose up`).
+     - ✅ **Elasticsearch** para indexação e busca .
+   - ✅ A aplicação deve ser iniciada com um único comando (`docker-compose up`).
 
 2. **API RESTful**
 
-   - Implemente uma API RESTful para gerenciamento de pedidos.
-   - Utilize **Nest.js** seguindo as melhores práticas para estruturação de módulos, controladores e serviços.
-   - Utilize **TypeORM** para interação com o banco de dados **PostgreSQL**.
-   - Assegure-se de que as operações de CRUD (Create, Read, Update, Delete) estão implementadas.
+   - ✅ Implemente uma API RESTful para gerenciamento de pedidos.
+   - ✅ Utilize **Nest.js** seguindo as melhores práticas para estruturação de módulos, controladores e serviços.
+   - ✅ Utilize **TypeORM** para interação com o banco de dados **PostgreSQL**.
+   - ✅ Assegure-se de que as operações de CRUD (Create, Read, Update, Delete) estão implementadas.
 
 3. **Comunicação via Kafka**
 
@@ -49,25 +49,25 @@ Você foi designado para desenvolver um sistema de gerenciamento de pedidos para
 
 4. **Integração com Elasticsearch**
 
-   - Implemente a indexação dos pedidos no **Elasticsearch**:
-     - Ao criar ou atualizar um pedido, sincronize os dados com o Elasticsearch.
-   - Implemente endpoints na API que permitam a busca e filtragem de pedidos utilizando as capacidades de pesquisa do Elasticsearch.
-   - Permita que os usuários realizem pesquisas por:
-     - Identificador do pedido.
-     - Status do pedido.
+   - ✅ Implemente a indexação dos pedidos no **Elasticsearch**:
+     - ✅ Ao criar ou atualizar um pedido, sincronize os dados com o Elasticsearch.
+   - ✅ Implemente endpoints na API que permitam a busca e filtragem de pedidos utilizando as capacidades de pesquisa do Elasticsearch.
+   - ✅ Permita que os usuários realizem pesquisas por:
+     - ✅ Identificador do pedido.
+     - ✅ Status do pedido.
      - Intervalo de datas.
-     - Itens contidos no pedido.
+     - ✅ Itens contidos no pedido.
 
 5. **Clean Code e Boas Práticas**
 
-   - Aplique os princípios de **Clean Code** em toda a sua implementação.
-   - Utilize um padrão de código consistente e configure **ESLint** e **Prettier** no projeto.
+   - ✅ Aplique os princípios de **Clean Code** em toda a sua implementação.
+   - ✅ Utilize um padrão de código consistente e configure **ESLint** e **Prettier** no projeto.
    - Documente o código quando necessário para melhorar a legibilidade.
 
 6. **Dockerização**
 
-   - Certifique-se de que a aplicação e todos os serviços necessários estejam corretamente containerizados.
-   - Utilize **Docker-compose** para orquestrar os contêineres.
+   - ✅ Certifique-se de que a aplicação e todos os serviços necessários estejam corretamente containerizados.
+   - ✅ Utilize **Docker-compose** para orquestrar os contêineres.
 
 7. **Testes**
 
@@ -99,8 +99,8 @@ Você foi designado para desenvolver um sistema de gerenciamento de pedidos para
 
 ## Entrega
 
-- O código deve estar disponível em um repositório Git (preferencialmente GitHub) público.
-- Inclua um arquivo `README.md` com:
+- ✅ O código deve estar disponível em um repositório Git (preferencialmente GitHub) público.
+- ✅ Inclua um arquivo `README.md` com:
   - Instruções claras sobre como configurar e executar a aplicação.
   - Descrição das funcionalidades implementadas.
   - Possíveis limitações ou melhorias futuras.

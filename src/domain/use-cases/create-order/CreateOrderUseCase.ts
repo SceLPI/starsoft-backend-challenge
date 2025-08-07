@@ -8,11 +8,13 @@ import { Order } from '../../entities/Order';
 import { OrderItem } from '../../entities/OrderItem';
 import { Status } from '../../enums/Status';
 import { randomUUID } from 'crypto';
+import { SearchService } from 'src/infrastructure/elasticsearch/SearchService';
 
 export class CreateOrderUseCase implements ICreateOrderUseCase {
   constructor(
     private readonly itemRepository: IItemRepository,
     private readonly orderRepository: IOrderRepository,
+    private readonly searchService: SearchService,
   ) {}
 
   async execute(params: CreateOrderUseCaseParams): Promise<void> {
@@ -49,5 +51,6 @@ export class CreateOrderUseCase implements ICreateOrderUseCase {
     );
 
     await this.orderRepository.save(order);
+    await this.searchService.indexOrder(order);
   }
 }
