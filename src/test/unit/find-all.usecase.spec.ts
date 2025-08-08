@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/unbound-method */
 
-import { Order } from '../domain/entities/Order';
-import { IOrderRepository } from '../domain/repositories/IOrderRepository';
-import { FindAllOrdersUseCase } from '../domain/use-cases/find-all-orders/FindAllOrdersUseCase';
-import { Status } from '../domain/enums/Status';
+import { Order } from '../../domain/entities/Order';
+import { IOrderRepository } from '../../domain/repositories/IOrderRepository';
+import { FindAllOrdersUseCase } from '../../domain/use-cases/find-all-orders/FindAllOrdersUseCase';
+import { Status } from '../../domain/enums/Status';
 
 describe('Order Creation Unity Mocked Tests', () => {
   let useCase: FindAllOrdersUseCase;

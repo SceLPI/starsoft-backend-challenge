@@ -11,27 +11,27 @@ import { IOrderItemRepository } from '../../../domain/repositories/IOrderItemRep
 export class DBOrderItemRepository implements IOrderItemRepository {
   constructor(
     @InjectRepository(OrderItemEntity)
-    private readonly ormRepo: Repository<OrderItemEntity>,
+    private readonly orderItemRepository: Repository<OrderItemEntity>,
   ) {}
 
   async findById(id: string): Promise<OrderItem | null> {
-    const entity = await this.ormRepo.findOne({ where: { id } });
+    const entity = await this.orderItemRepository.findOne({ where: { id } });
     return entity ? this.toDomain(entity) : null;
   }
 
   async findByOrderId(orderId: string): Promise<OrderItem[]> {
-    const entities = await this.ormRepo.find({
+    const entities = await this.orderItemRepository.find({
       where: { order: { id: orderId } },
     });
     return entities.map((entity) => this.toDomain(entity)); // evita unbound method
   }
 
   async save(orderItem: OrderItem): Promise<void> {
-    await this.ormRepo.save(this.toEntity(orderItem));
+    await this.orderItemRepository.save(this.toEntity(orderItem));
   }
 
   async deleteByOrderId(orderId: string): Promise<void> {
-    await this.ormRepo.delete({ order: { id: orderId } });
+    await this.orderItemRepository.delete({ order: { id: orderId } });
   }
 
   private toDomain(entity: OrderItemEntity): OrderItem {

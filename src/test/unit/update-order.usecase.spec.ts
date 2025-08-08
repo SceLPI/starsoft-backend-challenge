@@ -2,15 +2,15 @@
 /* eslint-disable @typescript-eslint/require-await */
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 
-import { Status } from '../domain/enums/Status';
-import { Item } from '../domain/entities/Item';
-import { IOrderRepository } from '../domain/repositories/IOrderRepository';
-import { SearchService } from '../infrastructure/elasticsearch/SearchService';
-import { KafkaService } from '../infrastructure/kafka/KafkaService';
-import { UpdateOrderUseCaseParams } from '../domain/use-cases/update-order/UpdateOrderUseCaseParams';
-import { Order } from '../domain/entities/Order';
-import { OrderItem } from '../domain/entities/OrderItem';
-import { UpdateOrderUseCase } from '../domain/use-cases/update-order/UpdateOrderUseCase';
+import { Status } from '../../domain/enums/Status';
+import { Item } from '../../domain/entities/Item';
+import { IOrderRepository } from '../../domain/repositories/IOrderRepository';
+import { SearchService } from '../../infrastructure/elasticsearch/SearchService';
+import { KafkaService } from '../../infrastructure/kafka/KafkaService';
+import { UpdateOrderUseCaseParams } from '../../domain/use-cases/update-order/UpdateOrderUseCaseParams';
+import { Order } from '../../domain/entities/Order';
+import { OrderItem } from '../../domain/entities/OrderItem';
+import { UpdateOrderUseCase } from '../../domain/use-cases/update-order/UpdateOrderUseCase';
 
 describe('Order Creation Unity Mocked Tests', () => {
   let useCase: UpdateOrderUseCase;

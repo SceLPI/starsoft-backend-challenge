@@ -1,0 +1,26 @@
+{
+  "moduleFileExtensions": ["js", "json", "ts"],
+  "rootDir": ".",
+  "testEnvironment": "node",
+  "testRegex": ".e2e-spec.ts$",
+  "transform": {
+    "^.+\\.(t|j)s$": "ts-jest"
+  },
+  "moduleNameMapper": {
+    "^src/(.*)$": "<rootDir>/src/$1"
+  },
+  "coveragePathIgnorePatterns": [
+    "/node_modules/",
+    "/dist/",
+    "/src/config/",
+    "infrastructure/database/entities/",
+    "infrastructure/kafka",
+    "main.ts",
+    "app.module.ts",
+    "app.service.ts",
+    "app.controller.ts",
+    ".module.ts$",
+    ".entity.ts$",
+    ".interface.ts$"
+  ]
+}

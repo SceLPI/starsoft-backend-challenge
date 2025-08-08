@@ -2,13 +2,13 @@
 /* eslint-disable @typescript-eslint/unbound-method */
 /* eslint-disable @typescript-eslint/require-await */
 
-import { Item } from '../domain/entities/Item';
-import { IItemRepository } from '../domain/repositories/IItemRepository';
-import { IOrderRepository } from '../domain/repositories/IOrderRepository';
-import { CreateOrderUseCase } from '../domain/use-cases/create-order/CreateOrderUseCase';
-import { CreateOrderUseCaseParams } from '../domain/use-cases/create-order/CreateOrderUseCaseParams';
-import { SearchService } from '../infrastructure/elasticsearch/SearchService';
-import { KafkaService } from '../infrastructure/kafka/KafkaService';
+import { Item } from '../../domain/entities/Item';
+import { IItemRepository } from '../../domain/repositories/IItemRepository';
+import { IOrderRepository } from '../../domain/repositories/IOrderRepository';
+import { CreateOrderUseCase } from '../../domain/use-cases/create-order/CreateOrderUseCase';
+import { CreateOrderUseCaseParams } from '../../domain/use-cases/create-order/CreateOrderUseCaseParams';
+import { SearchService } from '../../infrastructure/elasticsearch/SearchService';
+import { KafkaService } from '../../infrastructure/kafka/KafkaService';
 
 describe('Order Creation Unity Mocked Tests', () => {
   let useCase: CreateOrderUseCase;

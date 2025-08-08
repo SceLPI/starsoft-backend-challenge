@@ -19,7 +19,7 @@ export class CreateOrderUseCase implements ICreateOrderUseCase {
     private readonly kafkaService: KafkaService,
   ) {}
 
-  async execute(params: CreateOrderUseCaseParams): Promise<void> {
+  async execute(params: CreateOrderUseCaseParams): Promise<Order> {
     const { items, createdAt } = params;
 
     const orderItems: OrderItem[] = [];
@@ -72,5 +72,7 @@ export class CreateOrderUseCase implements ICreateOrderUseCase {
     };
 
     await this.kafkaService.emit('order_created', orderEmitter);
+
+    return order;
   }
 }

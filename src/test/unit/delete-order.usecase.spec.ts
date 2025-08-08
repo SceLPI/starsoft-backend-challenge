@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/unbound-method */
 
-import { IOrderRepository } from '../domain/repositories/IOrderRepository';
-import { SearchService } from '../infrastructure/elasticsearch/SearchService';
-import { DeleteOrderUseCase } from '../domain/use-cases/delete-order/DeleteOrderUseCase';
+import { IOrderRepository } from '../../domain/repositories/IOrderRepository';
+import { SearchService } from '../../infrastructure/elasticsearch/SearchService';
+import { DeleteOrderUseCase } from '../../domain/use-cases/delete-order/DeleteOrderUseCase';
 
 describe('Order Deletion Unity Mocked Tests', () => {
   let useCase: DeleteOrderUseCase;

@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import {
+  BadRequestException,
   Body,
   Controller,
   Delete,
@@ -21,6 +22,7 @@ import {
 } from '@nestjs/swagger';
 import { CreateOrderDTO } from 'src/application/dtos/CreateOrderDTO';
 import type { UpdateOrderDTO } from 'src/application/dtos/UpdateOrderDTO';
+import { Order } from 'src/domain/entities/Order';
 import { CreateOrderUseCase } from 'src/domain/use-cases/create-order/CreateOrderUseCase';
 import { DeleteOrderUseCase } from 'src/domain/use-cases/delete-order/DeleteOrderUseCase';
 import { FindAllOrdersUseCase } from 'src/domain/use-cases/find-all-orders/FindAllOrdersUseCase';
@@ -69,11 +71,15 @@ export class OrderController {
     status: 400,
     description: 'Order Creation has Failed',
   })
-  async create(@Body() body: CreateOrderDTO): Promise<void> {
-    await this.createOrderUseCase.execute({
-      items: body.items,
-      createdAt: new Date(),
-    });
+  async create(@Body() body: CreateOrderDTO): Promise<Order | string> {
+    try {
+      return await this.createOrderUseCase.execute({
+        items: body.items,
+        createdAt: new Date(),
+      });
+    } catch (e) {
+      throw new BadRequestException(e.message);
+    }
   }
 
   @Put(':id')
@@ -105,10 +111,14 @@ export class OrderController {
     @Param('id') id: string,
     @Body() body: UpdateOrderDTO,
   ): Promise<void> {
-    await this.updateOrderUseCase.execute({
-      id: id,
-      status: body.status,
-    });
+    try {
+      await this.updateOrderUseCase.execute({
+        id: id,
+        status: body.status,
+      });
+    } catch (e) {
+      throw new BadRequestException(e.message);
+    }
   }
 
   @Delete(':id')

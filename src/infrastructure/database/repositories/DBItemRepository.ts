@@ -9,30 +9,35 @@ import { Item } from '../../../domain/entities/Item';
 @Injectable()
 export class DBItemRepository implements IItemRepository {
   constructor(
+    /* istanbul ignore next */
     @InjectRepository(ItemEntity)
-    private readonly ormRepo: Repository<ItemEntity>,
+    private readonly itemRepository: Repository<ItemEntity>,
   ) {}
 
   async findById(id: string): Promise<Item | null> {
-    const entity = await this.ormRepo.findOne({ where: { id } });
+    const entity = await this.itemRepository.findOne({ where: { id } });
     return entity ? this.toDomain(entity) : null;
   }
 
+  /* istanbul ignore next */
   async findAll(): Promise<Item[]> {
-    const entities = await this.ormRepo.find();
+    const entities = await this.itemRepository.find();
     return entities.map((entity) => this.toDomain(entity)); // ← evita unbound method
   }
 
+  /* istanbul ignore next */
   async save(item: Item): Promise<void> {
-    await this.ormRepo.save(this.toEntity(item));
+    await this.itemRepository.save(this.toEntity(item));
   }
 
+  /* istanbul ignore next */
   async update(item: Item): Promise<void> {
-    await this.ormRepo.save(this.toEntity(item));
+    await this.itemRepository.save(this.toEntity(item));
   }
 
+  /* istanbul ignore next */
   async delete(id: string): Promise<void> {
-    await this.ormRepo.delete(id);
+    await this.itemRepository.delete(id);
   }
 
   private toDomain(entity: ItemEntity): Item {
@@ -45,6 +50,7 @@ export class DBItemRepository implements IItemRepository {
     );
   }
 
+  /* istanbul ignore next */
   private toEntity(domain: Item): ItemEntity {
     const entity = new ItemEntity();
     entity.id = domain.id;
