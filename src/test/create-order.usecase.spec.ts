@@ -1,6 +1,6 @@
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 /* eslint-disable @typescript-eslint/unbound-method */
 /* eslint-disable @typescript-eslint/require-await */
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 
 import { Item } from '../domain/entities/Item';
 import { IItemRepository } from '../domain/repositories/IItemRepository';
@@ -38,13 +38,13 @@ describe('Order Creation Unity Mocked Tests', () => {
       indexOrder: jest.fn(),
       search: jest.fn(),
       delete: jest.fn(),
-    } as Partial<jest.Mocked<SearchService>>;
+    } as unknown as jest.Mocked<SearchService>;
 
     mockKafkaService = {
       emit: jest.fn(),
       onModuleInit: jest.fn(),
       onModuleDestroy: jest.fn(),
-    } as Partial<jest.Mocked<KafkaService>>;
+    } as unknown as jest.Mocked<KafkaService>;
 
     useCase = new CreateOrderUseCase(
       mockItemRepository,

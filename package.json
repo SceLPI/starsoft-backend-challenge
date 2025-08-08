@@ -85,6 +85,7 @@
       "/node_modules/",
       "/dist/",
       "/src/config/",
+      "infrastructure/database/entities/",
       "main.ts",
       "app.module.ts",
       "app.service.ts",

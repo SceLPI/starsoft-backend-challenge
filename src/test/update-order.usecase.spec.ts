@@ -31,13 +31,13 @@ describe('Order Creation Unity Mocked Tests', () => {
       indexOrder: jest.fn(),
       search: jest.fn(),
       delete: jest.fn(),
-    } as Partial<jest.Mocked<SearchService>>;
+    } as unknown as jest.Mocked<SearchService>;
 
     mockKafkaService = {
       emit: jest.fn(),
       onModuleInit: jest.fn(),
       onModuleDestroy: jest.fn(),
-    } as Partial<jest.Mocked<KafkaService>>;
+    } as unknown as jest.Mocked<KafkaService>;
 
     useCase = new UpdateOrderUseCase(
       mockOrderRepository,
