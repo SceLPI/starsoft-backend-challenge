@@ -9,7 +9,7 @@ Bem-vindo(a) ao processo seletivo para a posição de **Desenvolvedor(a) Back-En
 - ✅ Faça um **fork** deste repositório para o seu GitHub pessoal.
 - ✅ Desenvolva as soluções solicitadas abaixo, seguindo as **melhores práticas de desenvolvimento**. 
 - ✅ Após a conclusão, envie o link do seu repositório para avaliação.
-- Sinta-se à vontade para adicionar qualquer documentação ou comentários que julgar necessário.
+- ✅ Sinta-se à vontade para adicionar qualquer documentação ou comentários que julgar necessário.
 
 ## Desafio
 
@@ -24,7 +24,7 @@ Você foi designado para desenvolver um sistema de gerenciamento de pedidos para
 
 ### Requisitos
 
-1. **Configuração do Ambiente**
+1. ✅ **Configuração do Ambiente**
 
    - ✅ Configure um ambiente de desenvolvimento utilizando **Docker** e **Docker-compose**, incluindo:
      - ✅ Aplicação Node.js com **Nest.js**.
@@ -33,21 +33,21 @@ Você foi designado para desenvolver um sistema de gerenciamento de pedidos para
      - ✅ **Elasticsearch** para indexação e busca .
    - ✅ A aplicação deve ser iniciada com um único comando (`docker-compose up`).
 
-2. **API RESTful**
+2. ✅ **API RESTful**
 
    - ✅ Implemente uma API RESTful para gerenciamento de pedidos.
    - ✅ Utilize **Nest.js** seguindo as melhores práticas para estruturação de módulos, controladores e serviços.
    - ✅ Utilize **TypeORM** para interação com o banco de dados **PostgreSQL**.
    - ✅ Assegure-se de que as operações de CRUD (Create, Read, Update, Delete) estão implementadas.
 
-3. **Comunicação via Kafka**
+3. ✅ **Comunicação via Kafka**
 
    - ✅ Implemente a publicação de eventos em **Kafka**:
      - ✅ Ao criar um novo pedido, publique um evento `order_created`.
      - ✅ Ao atualizar o status de um pedido, publique um evento `order_status_updated`.
      - ✅ Os eventos devem conter informações relevantes em formato JSON.
 
-4. **Integração com Elasticsearch**
+4. ✅ **Integração com Elasticsearch**
 
    - ✅ Implemente a indexação dos pedidos no **Elasticsearch**:
      - ✅ Ao criar ou atualizar um pedido, sincronize os dados com o Elasticsearch.
@@ -58,13 +58,13 @@ Você foi designado para desenvolver um sistema de gerenciamento de pedidos para
      - Intervalo de datas.
      - ✅ Itens contidos no pedido.
 
-5. **Clean Code e Boas Práticas**
+5. ✅ **Clean Code e Boas Práticas**
 
    - ✅ Aplique os princípios de **Clean Code** em toda a sua implementação.
    - ✅ Utilize um padrão de código consistente e configure **ESLint** e **Prettier** no projeto.
-   - Documente o código quando necessário para melhorar a legibilidade.
+   - ✅ Documente o código quando necessário para melhorar a legibilidade.
 
-6. **Dockerização**
+6. ✅ **Dockerização**
 
    - ✅ Certifique-se de que a aplicação e todos os serviços necessários estejam corretamente containerizados.
    - ✅ Utilize **Docker-compose** para orquestrar os contêineres.
@@ -74,10 +74,10 @@ Você foi designado para desenvolver um sistema de gerenciamento de pedidos para
    - Escreva testes unitários e/ou de integração para as principais funcionalidades da aplicação utilizando **Jest** (test runner padrão do Nest.js).
    - Os testes devem cobrir, no mínimo, os serviços e controladores.
 
-8. **Documentação da API**
+8. ✅ **Documentação da API**
 
-   - Forneça documentação da API utilizando **Swagger** (integrado ao Nest.js).
-   - A documentação deve estar acessível através de uma rota, por exemplo, `/api-docs`.
+   - ✅ Forneça documentação da API utilizando **Swagger** (integrado ao Nest.js).
+   - ✅ A documentação deve estar acessível através de uma rota, por exemplo, `/api-docs`.
 
 9. **Logs e Monitoramento**
 
