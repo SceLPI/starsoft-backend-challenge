@@ -45,7 +45,9 @@ Entidades foram separadas e a divisão das pastas foi da seguinte forma:
 - Implementaria ReflectMetadata e DicoveryService.
 - Mudaria também basicamente o nome dos arquivos para ficar mais padrão ao nest ver 8+ que é sem camel case `UpdateOrderDTO.ts` para `update-order.dto.ts` como iniciei por um projeto base quando resolvi fazer já estava muito avançado e por questão de tempo mantive o que já estava e segui o padrão.
 - Implementaria um Github actions para rodar os testes na pipeline a cada commit, verificar os lints e etc.
-- Já deixaria o projeto pronto com K8N
+- Já deixaria o projeto pronto com K8N.
+- Retornos mais humanizados dos endpoints.
+- Internacionalização.
 
 
 
