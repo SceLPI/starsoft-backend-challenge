@@ -69,10 +69,10 @@ Você foi designado para desenvolver um sistema de gerenciamento de pedidos para
    - ✅ Certifique-se de que a aplicação e todos os serviços necessários estejam corretamente containerizados.
    - ✅ Utilize **Docker-compose** para orquestrar os contêineres.
 
-7. **Testes**
+7. ✅ **Testes**
 
-   - Escreva testes unitários e/ou de integração para as principais funcionalidades da aplicação utilizando **Jest** (test runner padrão do Nest.js).
-   - Os testes devem cobrir, no mínimo, os serviços e controladores.
+   - ✅ Escreva testes unitários e/ou de integração para as principais funcionalidades da aplicação utilizando **Jest** (test runner padrão do Nest.js).
+   - ✅ Os testes devem cobrir, no mínimo, os serviços e controladores.
 
 8. ✅ **Documentação da API**
 
@@ -81,8 +81,8 @@ Você foi designado para desenvolver um sistema de gerenciamento de pedidos para
 
 9. **Logs e Monitoramento**
 
-   - Implemente logs estruturados utilizando um middleware ou interceptador do Nest.js.
-   - Registre informações importantes como erros, acessos às rotas e eventos de negócio.
+   - ✅ Implemente logs estruturados utilizando um middleware ou interceptador do Nest.js.
+   - ✅ Registre informações importantes como erros, acessos às rotas e eventos de negócio.
 
 ### Diferenciais (Desejável)
 
