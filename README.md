@@ -1,3 +1,58 @@
+# Informações de desenvolvimento
+
+## Sobre o desenvolvimento
+Foi utilizado os princípios do DDD juntamente com Clean Architecture para desenvolvimento.
+Entidades foram separadas e a divisão das pastas foi da seguinte forma:
+
+- **application/**: onde definimos a forma como os dados entram e saem do sistema (DTOs, validador, interfaces).
+- **config/**: arquivo de configuração dos módulos do projeto.
+- **domain/**: representa o "coração" da aplicação, com entidades e regras de negócio puras e independentes de frameworks.
+- **infrastructure/**: contém detalhes técnicos e integrações (banco, Kafka, Elasticsearch) que implementam os contratos do domínio.
+- **modules/**: definição dos módulos do projeto.
+- **presentation/**: define a entrada dos dados via API REST.
+- **test/**: onde ficam os testes automatizados, incluindo testes de integração.
+
+## Versões de stacks utilizadas no projeto
+- **NodeJs**: 24.5.0
+- **Nest**: 11.1
+- **Npm**: 11.5.1
+- **PostgreSQL**: 16.9
+- **ElasticSearch**: 9.1.0
+- **Kafka**: 3.9.0
+
+## Ferramentas de monitoramento
+- Sentry
+
+## Iniciar a aplicação
+- Antes de iniciar a aplicação copie o arquivo .env.example para .env, configure somente o DSN do sentry no .env, todo o resto já está configurado para rodar certinho no docker.
+- Para executar: `docker compose up -d --build`
+- Todos os serviços serão iniciados automaticamente e o banco de dados gerado.
+- Rode o teste unitário com `npm run test:cov` para inclusive ver o coverage (As evidencias dos coverages estão na pasta evidence)
+- E rode os testes de integração com `npm run test:e2e-cov` para inclusive ver o coverage (As evidencias dos coverages estão na pasta evidence)
+- Como não foi gerado seeds, seria importante rodar os testes antes da primeira tentativa de inserir dados no banco de dados pois elas irão adicionar dois items que podem ser usados para gerar uma nova order. (Seus ids padrões após gerado serão: `ff78fe66-6925-4534-b387-fdd25cc99fac` e `5e9b69ca-dbe4-4e6a-8cfd-3b013e151183`)
+
+## Links e informações sobre o projeto
+- A documentação swagger estará acessível no link: `http://localhost:3000/api-docs`
+- Para acessar o Kafka e verificar os eventos em fila acessa o Kafka-UI pelo link: `http://localhost:8080`
+- Foi solicitado sincronia de dados somente com o create e update, fiz também com o delete para remover do ES.
+- Os avançados seria possível fazer, por questão de tempo não foi finalizado o tópico **Configure logs centralizados utilizando Elastic Stack (ELK).**
+- Para monitoramento não foi utilizado **Prometheus** e **Grafana** mas adicionei o sentry por questão de tempo também.
+
+## Melhorias
+- Com certeza adicionar os endpoints para criação de Items em primeiro lugar
+- Por utilizar um projeto base que eu já tinha e já trabalho utilizei o DDD para mostrar o conhecimento, mas devido ao tamanho do projeto eu migraria para Clean Architecture com separação mais simples de modules e os domínios presenters e etc dentro de cada módulo em específico (REFATORAÇÃO)
+- Implementaria os emits para a fila com o Kafka para o delete também.
+- Implementaria ReflectMetadata e DicoveryService.
+- Mudaria também basicamente o nome dos arquivos para ficar mais padrão ao nest ver 8+ que é sem camel case `UpdateOrderDTO.ts` para `update-order.dto.ts` como iniciei por um projeto base quando resolvi fazer já estava muito avançado e por questão de tempo mantive o que já estava e segui o padrão.
+- Implementaria um Github actions para rodar os testes na pipeline a cada commit, verificar os lints e etc.
+- Já deixaria o projeto pronto com K8N
+
+
+
+<br><br><br>
+***
+
+
 # Teste para Desenvolvedor(a) Back-End Node.js/Nest.js
 
 ## Introdução
@@ -101,9 +156,9 @@ Você foi designado para desenvolver um sistema de gerenciamento de pedidos para
 
 - ✅ O código deve estar disponível em um repositório Git (preferencialmente GitHub) público.
 - ✅ Inclua um arquivo `README.md` com:
-  - Instruções claras sobre como configurar e executar a aplicação.
-  - Descrição das funcionalidades implementadas.
-  - Possíveis limitações ou melhorias futuras.
+  - ✅ Instruções claras sobre como configurar e executar a aplicação.
+  - ✅ Descrição das funcionalidades implementadas.
+  - ✅ Possíveis limitações ou melhorias futuras.
 
 ## Avaliação
 
