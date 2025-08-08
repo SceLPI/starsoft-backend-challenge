@@ -5,13 +5,11 @@ import { INestApplication, ValidationPipe } from '@nestjs/common';
 import { Test, TestingModule } from '@nestjs/testing';
 import request from 'supertest';
 import { AppModule } from '../../app.module';
-import { DataSource } from 'typeorm';
 import 'jest-extended';
 import { KafkaService } from 'src/infrastructure/kafka/KafkaService';
 
 describe('OrderController e2e - Search', () => {
   let app: INestApplication;
-  let dataSource: DataSource;
 
   beforeAll(async () => {
     const mockKafkaService = {
@@ -30,7 +28,6 @@ describe('OrderController e2e - Search', () => {
     app.useGlobalPipes(new ValidationPipe({}));
 
     await app.init();
-    dataSource = app.get(DataSource);
   });
 
   afterAll(async () => {
