@@ -68,7 +68,23 @@ describe('Order Creation Unity Mocked Tests', () => {
     });
 
     await useCase.execute(input);
-    expect(mockItemRepository.findById).toHaveBeenCalledTimes(2);
+    //FIND BY ID SHOULD BE CALLED NUMBER OF ITEMS WE GOT
+    expect(mockItemRepository.findById).toHaveBeenCalledTimes(
+      input.items.length,
+    );
+    //ORDER SAVE TEST
+    expect(mockOrderRepository.save).toHaveBeenCalled();
+    //CHECK IF ELASTIC SEARCH INSERTION WAS CALLED
+    expect(mockSearchService.indexOrder).toHaveBeenCalled();
+    //CHECK IF KAFKA WAS CALLED EMITTING order_created
+    expect(mockKafkaService.emit).toHaveBeenCalledWith(
+      'order_created',
+      expect.objectContaining({
+        id: expect.any(String),
+        status: expect.any(String),
+        items: expect.any(Array),
+      }),
+    );
   });
 
   it('Creating a new With Wrong Item', async () => {
